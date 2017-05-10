@@ -1,0 +1,19 @@
+{
+  "name": "keep-heroku-alive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Silvio Pereira",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "consign": "^0.1.4",
+    "express": "^4.15.2",
+    "express-validator": "^3.2.0",
+    "memcached": "^2.2.2",
+    "request": "^2.81.0"
+  }
+}
