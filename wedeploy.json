@@ -1,5 +1,5 @@
 {
-  "id": "app",
+  "id": "keep_heroku_alive",
   "memory": 2048,
   "env": {
     "DB_USER": "us3rname",
