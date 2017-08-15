@@ -8,6 +8,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 @Component
@@ -29,10 +30,15 @@ public class PingServicesScheduler {
             log.debug(webService.toString());
 
             try {
-                String response = new URL(webService.getFullHealthUrl()).getContent().toString();
-                log.debug(response);
+                URL url = new URL(webService.getFullHealthUrl());
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestMethod("GET");
+                conn.connect();
+
+                log.debug(conn.getResponseCode());
+
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error(e.getMessage(), e);
             }
         }
     }
