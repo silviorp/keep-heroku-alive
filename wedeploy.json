@@ -1,8 +1,4 @@
 {
   "id": "keepherokualive",
-  "memory": 2048,
-  "env": {
-    "DB_USER": "us3rname",
-    "DB_PASSWORD": "passw0rd"
-  }
+  "memory": 2048
 }
