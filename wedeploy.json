@@ -1,0 +1,8 @@
+{
+  "id": "app",
+  "memory": 2048,
+  "env": {
+    "DB_USER": "us3rname",
+    "DB_PASSWORD": "passw0rd"
+  }
+}
