@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@RestController
+@RestController("/api/v1/webservices")
 public class WebServiceRestController {
 
     private final WebServiceService webServiceService;
@@ -22,7 +22,7 @@ public class WebServiceRestController {
         this.webServiceService = webServiceService;
     }
 
-    @PostMapping
+    @PostMapping(name = "/register")
     public ResponseEntity<?> registerWebService(@RequestBody @Valid WebService webService, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return RestControllerUtil.getErrorResponse(bindingResult);
