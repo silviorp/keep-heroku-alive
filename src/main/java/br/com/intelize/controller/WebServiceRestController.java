@@ -2,7 +2,7 @@ package br.com.intelize.controller;
 
 import br.com.intelize.domain.WebService;
 import br.com.intelize.service.WebServiceService;
-import br.com.intelize.util.RestControllerUtil;
+import br.com.intelize.util.RestResponseEntityFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -27,14 +27,14 @@ public class WebServiceRestController {
     @PostMapping("/register")
     public ResponseEntity<?> registerWebService(@RequestBody @Valid WebService webService, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return RestControllerUtil.getErrorResponse(bindingResult);
+            return RestResponseEntityFactory.getErrorResponse(bindingResult);
         }
 
         try {
             webServiceService.save(webService);
-            return RestControllerUtil.getCreatedResponse();
+            return RestResponseEntityFactory.getCreatedResponse();
         } catch (Exception e) {
-            return RestControllerUtil.getInternalErrorResponse(e);
+            return RestResponseEntityFactory.getInternalErrorResponse(e);
         }
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.validation.ObjectError;
 
 import java.util.Optional;
 
-public class RestControllerUtil {
+public class RestResponseEntityFactory {
 
     public static ResponseEntity getErrorResponse(BindingResult bindingResult) {
         Optional<String> errors = bindingResult

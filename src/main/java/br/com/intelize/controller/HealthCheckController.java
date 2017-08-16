@@ -1,6 +1,6 @@
 package br.com.intelize.controller;
 
-import br.com.intelize.util.RestControllerUtil;
+import br.com.intelize.util.RestResponseEntityFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +12,6 @@ public class HealthCheckController {
 
     @GetMapping("/check")
     public ResponseEntity check() {
-        return RestControllerUtil.getOkResponse();
+        return RestResponseEntityFactory.getOkResponse();
     }
 }
