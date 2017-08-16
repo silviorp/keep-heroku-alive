@@ -33,4 +33,8 @@ public class RestControllerUtil {
                 .build();
     }
 
+    public static ResponseEntity getOkResponse() {
+        return ResponseEntity.ok().build();
+    }
+
 }
