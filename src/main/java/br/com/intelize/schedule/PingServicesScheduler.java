@@ -27,15 +27,16 @@ public class PingServicesScheduler {
     public void ping() {
         for (WebService webService : webServiceRepository.findAll()) {
 
-            log.debug(webService.toString());
-
             try {
                 URL url = new URL(webService.getFullHealthUrl());
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("GET");
                 conn.connect();
 
-                log.debug(conn.getResponseCode());
+                if (conn.getResponseCode() == 404) {
+                    webServiceRepository.delete(webService);
+                    System.out.println("WebService " + webService.getServiceName() + " removed due to status code 404 on Response");
+                }
 
             } catch (IOException e) {
                 log.error(e.getMessage(), e);
