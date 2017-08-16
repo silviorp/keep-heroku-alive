@@ -24,7 +24,7 @@ public class WebServiceRestController {
         this.webServiceService = webServiceService;
     }
 
-    @PostMapping(name = "/register")
+    @PostMapping("/register")
     public ResponseEntity<?> registerWebService(@RequestBody @Valid WebService webService, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return RestControllerUtil.getErrorResponse(bindingResult);
